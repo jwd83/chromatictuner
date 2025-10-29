@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chromatic Tuner</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Chromatic Tuner</h1>
+        </header>
+        
+        <main>
+            <div class="status-message" id="statusMessage">
+                Click "Start Tuner" to begin
+            </div>
+            
+            <div class="tuner-display">
+                <div class="note-container">
+                    <div class="note-display" id="noteDisplay" title="Smoothed note value - easier to read">--</div>
+                    <div class="note-realtime" id="noteRealtime" title="Real-time detected note - more responsive">--</div>
+                </div>
+                <div class="frequency-container">
+                    <div class="frequency-display" id="frequencyDisplay" title="Smoothed frequency - easier to read">-- Hz</div>
+                    <div class="frequency-realtime" id="frequencyRealtime" title="Real-time detected frequency - more responsive">-- Hz</div>
+                </div>
+                
+                <div class="cents-meter">
+                    <div class="cents-scale">
+                        <span class="mark">-50</span>
+                        <span class="mark center">0</span>
+                        <span class="mark">+50</span>
+                    </div>
+                    <div class="cents-indicator-container">
+                        <div class="cents-indicator" id="centsIndicator"></div>
+                    </div>
+                    <div class="cents-value" id="centsValue">0</div>
+                </div>
+            </div>
+            
+            <div class="controls">
+                <button id="startButton" class="btn btn-primary">Start Tuner</button>
+                <button id="stopButton" class="btn btn-secondary" disabled>Stop Tuner</button>
+            </div>
+        </main>
+        
+        <footer>
+            <p>Reference Pitch: A4 = 440 Hz</p>
+        </footer>
+    </div>
+    
+    <script type="module" src="app.js"></script>
+</body>
+</html>
