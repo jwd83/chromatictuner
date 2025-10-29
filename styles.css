@@ -85,37 +85,16 @@ main {
     border-radius: 12px;
 }
 
-.note-container {
-    display: flex;
-    align-items: baseline;
-    gap: 1rem;
-    min-height: 7rem;
-}
-
 .note-display {
     font-size: 6rem;
     font-weight: 700;
     letter-spacing: -2px;
     text-align: center;
+    min-height: 7rem;
     display: flex;
     align-items: center;
     justify-content: center;
     transition: color 0.2s ease;
-    cursor: help;
-}
-
-.note-realtime {
-    font-size: 2rem;
-    font-weight: 400;
-    color: var(--text-secondary);
-    opacity: 0.6;
-    align-self: center;
-    cursor: help;
-    transition: opacity 0.2s ease;
-}
-
-.note-realtime:hover {
-    opacity: 1;
 }
 
 .note-display.in-tune {
@@ -126,30 +105,10 @@ main {
     color: var(--text-primary);
 }
 
-.frequency-container {
-    display: flex;
-    align-items: baseline;
-    gap: 0.75rem;
-}
-
 .frequency-display {
     font-size: 1.25rem;
     color: var(--text-secondary);
     font-variant-numeric: tabular-nums;
-    cursor: help;
-}
-
-.frequency-realtime {
-    font-size: 0.95rem;
-    color: var(--text-secondary);
-    opacity: 0.5;
-    font-variant-numeric: tabular-nums;
-    cursor: help;
-    transition: opacity 0.2s ease;
-}
-
-.frequency-realtime:hover {
-    opacity: 1;
 }
 
 .cents-meter {
@@ -279,23 +238,9 @@ footer {
         font-size: 1.5rem;
     }
     
-    .note-container {
-        min-height: 5rem;
-        gap: 0.5rem;
-    }
-    
     .note-display {
         font-size: 4.5rem;
-    }
-    
-    .note-realtime {
-        font-size: 1.5rem;
-    }
-    
-    .frequency-container {
-        flex-direction: column;
-        align-items: center;
-        gap: 0.25rem;
+        min-height: 5rem;
     }
     
     .controls {

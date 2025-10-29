@@ -5,9 +5,7 @@
 export class UIAgent {
     constructor() {
         this.noteDisplay = document.getElementById('noteDisplay');
-        this.noteRealtime = document.getElementById('noteRealtime');
         this.frequencyDisplay = document.getElementById('frequencyDisplay');
-        this.frequencyRealtime = document.getElementById('frequencyRealtime');
         this.centsValue = document.getElementById('centsValue');
         this.centsIndicator = document.getElementById('centsIndicator');
         this.statusMessage = document.getElementById('statusMessage');
@@ -17,7 +15,7 @@ export class UIAgent {
         // Smoothing state
         this.smoothedFrequency = null;
         this.smoothedCents = 0;
-        this.smoothingFactor = 0.7; // Higher = more smoothing (reduced for faster response)
+        this.smoothingFactor = 0.7; // Higher = more smoothing
     }
 
     /**
@@ -31,10 +29,6 @@ export class UIAgent {
         }
 
         const { frequency, note, cents } = pitchData;
-
-        // Update real-time displays
-        this.noteRealtime.textContent = note;
-        this.frequencyRealtime.textContent = `${frequency} Hz`;
         
         // Apply smoothing to frequency
         if (this.smoothedFrequency === null) {
@@ -48,7 +42,7 @@ export class UIAgent {
         this.smoothedCents = this.smoothingFactor * this.smoothedCents + 
                              (1 - this.smoothingFactor) * cents;
 
-        // Update smoothed displays (note updates immediately, frequency is smoothed)
+        // Update displays with smoothed values
         this.noteDisplay.textContent = note;
         this.frequencyDisplay.textContent = `${Math.round(this.smoothedFrequency * 10) / 10} Hz`;
         
@@ -81,9 +75,7 @@ export class UIAgent {
      */
     showNoSignal() {
         this.noteDisplay.textContent = '--';
-        this.noteRealtime.textContent = '--';
         this.frequencyDisplay.textContent = '-- Hz';
-        this.frequencyRealtime.textContent = '-- Hz';
         this.centsValue.textContent = '0';
         this.centsIndicator.style.left = '50%';
         this.noteDisplay.classList.remove('in-tune', 'out-of-tune');
